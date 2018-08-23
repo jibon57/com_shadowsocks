@@ -42,10 +42,10 @@ class ShadowsocksViewServers extends JViewLegacy
 		$this->saveOrder = $this->listOrder == 'ordering';
 		// get global action permissions
 		$this->canDo = ShadowsocksHelper::getActions('server');
-		$this->canEdit = $this->canDo->get('core.edit');
-		$this->canState = $this->canDo->get('core.edit.state');
-		$this->canCreate = $this->canDo->get('core.create');
-		$this->canDelete = $this->canDo->get('core.delete');
+		$this->canEdit = $this->canDo->get('server.edit');
+		$this->canState = $this->canDo->get('server.edit.state');
+		$this->canCreate = $this->canDo->get('server.create');
+		$this->canDelete = $this->canDo->get('server.delete');
 		$this->canBatch = $this->canDo->get('core.batch');
 
 		// We don't need toolbar in the modal window.

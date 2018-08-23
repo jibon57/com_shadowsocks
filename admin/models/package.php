@@ -128,8 +128,8 @@ class ShadowsocksModelPackage extends JModelAdmin
 
 		// Check for existing item.
 		// Modify the form based on Edit State access controls.
-		if ($id != 0 && (!$user->authorise('core.edit.state', 'com_shadowsocks.package.' . (int) $id))
-			|| ($id == 0 && !$user->authorise('core.edit.state', 'com_shadowsocks')))
+		if ($id != 0 && (!$user->authorise('package.edit.state', 'com_shadowsocks.package.' . (int) $id))
+			|| ($id == 0 && !$user->authorise('package.edit.state', 'com_shadowsocks')))
 		{
 			// Disable fields for display.
 			$form->setFieldAttribute('ordering', 'disabled', 'true');
@@ -145,7 +145,8 @@ class ShadowsocksModelPackage extends JModelAdmin
 			$form->setValue('created_by', null, $user->id);
 		}
 		// Modify the form based on Edit Creaded By access controls.
-		if (!$user->authorise('core.edit.created_by', 'com_shadowsocks'))
+		if ($id != 0 && (!$user->authorise('package.edit.created_by', 'com_shadowsocks.package.' . (int) $id))
+			|| ($id == 0 && !$user->authorise('package.edit.created_by', 'com_shadowsocks')))
 		{
 			// Disable fields for display.
 			$form->setFieldAttribute('created_by', 'disabled', 'true');
@@ -155,7 +156,8 @@ class ShadowsocksModelPackage extends JModelAdmin
 			$form->setFieldAttribute('created_by', 'filter', 'unset');
 		}
 		// Modify the form based on Edit Creaded Date access controls.
-		if (!$user->authorise('core.edit.created', 'com_shadowsocks'))
+		if ($id != 0 && (!$user->authorise('package.edit.created', 'com_shadowsocks.package.' . (int) $id))
+			|| ($id == 0 && !$user->authorise('package.edit.created', 'com_shadowsocks')))
 		{
 			// Disable fields for display.
 			$form->setFieldAttribute('created', 'disabled', 'true');
@@ -208,7 +210,7 @@ class ShadowsocksModelPackage extends JModelAdmin
 
 			$user = JFactory::getUser();
 			// The record has been set. Check the record permissions.
-			return $user->authorise('core.delete', 'com_shadowsocks.package.' . (int) $record->id);
+			return $user->authorise('package.delete', 'com_shadowsocks.package.' . (int) $record->id);
 		}
 		return false;
 	}
@@ -230,14 +232,14 @@ class ShadowsocksModelPackage extends JModelAdmin
 		if ($recordId)
 		{
 			// The record has been set. Check the record permissions.
-			$permission = $user->authorise('core.edit.state', 'com_shadowsocks.package.' . (int) $recordId);
+			$permission = $user->authorise('package.edit.state', 'com_shadowsocks.package.' . (int) $recordId);
 			if (!$permission && !is_null($permission))
 			{
 				return false;
 			}
 		}
 		// In the absense of better information, revert to the component permissions.
-		return parent::canEditState($record);
+		return $user->authorise('package.edit.state', 'com_shadowsocks');
 	}
     
 	/**
@@ -252,8 +254,9 @@ class ShadowsocksModelPackage extends JModelAdmin
 	protected function allowEdit($data = array(), $key = 'id')
 	{
 		// Check specific edit permission then general edit permission.
+		$user = JFactory::getUser();
 
-		return JFactory::getUser()->authorise('core.edit', 'com_shadowsocks.package.'. ((int) isset($data[$key]) ? $data[$key] : 0)) or parent::allowEdit($data, $key);
+		return $user->authorise('package.edit', 'com_shadowsocks.package.'. ((int) isset($data[$key]) ? $data[$key] : 0)) or $user->authorise('package.edit',  'com_shadowsocks');
 	}
     
 	/**
@@ -503,7 +506,7 @@ class ShadowsocksModelPackage extends JModelAdmin
 			$this->canDo		= ShadowsocksHelper::getActions('package');
 		}
 
-		if (!$this->canDo->get('core.create') || !$this->canDo->get('core.batch'))
+		if (!$this->canDo->get('package.create') && !$this->canDo->get('package.batch'))
 		{
 			return false;
 		}
@@ -518,7 +521,7 @@ class ShadowsocksModelPackage extends JModelAdmin
 		{
 			$values['published'] = 0;
 		}
-		elseif (isset($values['published']) && !$this->canDo->get('core.edit.state'))
+		elseif (isset($values['published']) && !$this->canDo->get('package.edit.state'))
 		{
 				$values['published'] = 0;
 		}
@@ -533,7 +536,7 @@ class ShadowsocksModelPackage extends JModelAdmin
 			$this->table->reset();
 
 			// only allow copy if user may edit this item.
-			if (!$this->user->authorise('core.edit', $contexts[$pk]))
+			if (!$this->user->authorise('package.edit', $contexts[$pk]))
 			{
 				// Not fatal error
 				$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_BATCH_MOVE_ROW_NOT_FOUND', $pk));
@@ -646,14 +649,14 @@ class ShadowsocksModelPackage extends JModelAdmin
 			$this->canDo		= ShadowsocksHelper::getActions('package');
 		}
 
-		if (!$this->canDo->get('core.edit') && !$this->canDo->get('core.batch'))
+		if (!$this->canDo->get('package.edit') && !$this->canDo->get('package.batch'))
 		{
 			$this->setError(JText::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_EDIT'));
 			return false;
 		}
 
 		// make sure published only updates if user has the permission.
-		if (isset($values['published']) && !$this->canDo->get('core.edit.state'))
+		if (isset($values['published']) && !$this->canDo->get('package.edit.state'))
 		{
 			unset($values['published']);
 		}
@@ -663,7 +666,7 @@ class ShadowsocksModelPackage extends JModelAdmin
 		// Parent exists so we proceed
 		foreach ($pks as $pk)
 		{
-			if (!$this->user->authorise('core.edit', $contexts[$pk]))
+			if (!$this->user->authorise('package.edit', $contexts[$pk]))
 			{
 				$this->setError(JText::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_EDIT'));
 				return false;

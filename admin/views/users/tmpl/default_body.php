@@ -23,7 +23,7 @@ $edit = "index.php?option=com_shadowsocks&view=users&task=user.edit";
 	?>
 	<tr class="row<?php echo $i % 2; ?>">
 		<td class="order nowrap center hidden-phone">
-		<?php if ($canDo->get('core.edit.state')): ?>
+		<?php if ($canDo->get('user.edit.state')): ?>
 			<?php
 				if ($this->saveOrder)
 				{
@@ -46,7 +46,7 @@ $edit = "index.php?option=com_shadowsocks&view=users&task=user.edit";
 		<?php endif; ?>
 		</td>
 		<td class="nowrap center">
-		<?php if ($canDo->get('core.edit')): ?>
+		<?php if ($canDo->get('user.edit')): ?>
 				<?php if ($item->checked_out) : ?>
 					<?php if ($canCheckin) : ?>
 						<?php echo JHtml::_('grid.id', $i, $item->id); ?>
@@ -62,7 +62,7 @@ $edit = "index.php?option=com_shadowsocks&view=users&task=user.edit";
 		</td>
 		<td class="nowrap">
 			<div class="name">
-				<?php if ($canDo->get('core.edit')): ?>
+				<?php if ($canDo->get('user.edit')): ?>
 					<a href="<?php echo $edit; ?>&id=<?php echo $item->id; ?>"><?php echo JFactory::getUser((int)$item->assign_to)->name; ?></a>
 					<?php if ($item->checked_out): ?>
 						<?php echo JHtml::_('jgrid.checkedout', $i, $userChkOut->name, $item->checked_out_time, 'users.', $canCheckin); ?>
@@ -82,7 +82,7 @@ $edit = "index.php?option=com_shadowsocks&view=users&task=user.edit";
 			<?php echo $this->escape($item->ss_user_port); ?>
 		</td>
 		<td class="center">
-		<?php if ($canDo->get('core.edit.state')) : ?>
+		<?php if ($canDo->get('user.edit.state')) : ?>
 				<?php if ($item->checked_out) : ?>
 					<?php if ($canCheckin) : ?>
 						<?php echo JHtml::_('jgrid.published', $item->published, $i, 'users.', true, 'cb'); ?>

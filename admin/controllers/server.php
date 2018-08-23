@@ -53,7 +53,7 @@ class ShadowsocksControllerServer extends JControllerForm
 			return false;
 		}
 		// In the absense of better information, revert to the component permissions.
-		return parent::allowAdd($data);
+		return JFactory::getUser()->authorise('server.create', $this->option);
 	}
 
 	/**
@@ -74,13 +74,20 @@ class ShadowsocksControllerServer extends JControllerForm
 		$recordId = (int) isset($data[$key]) ? $data[$key] : 0;
 
 
+		// Access check.
+		$access = ($user->authorise('server.access', 'com_shadowsocks.server.' . (int) $recordId) &&  $user->authorise('server.access', 'com_shadowsocks'));
+		if (!$access)
+		{
+			return false;
+		}
+
 		if ($recordId)
 		{
 			// The record has been set. Check the record permissions.
-			$permission = $user->authorise('core.edit', 'com_shadowsocks.server.' . (int) $recordId);
+			$permission = $user->authorise('server.edit', 'com_shadowsocks.server.' . (int) $recordId);
 			if (!$permission)
 			{
-				if ($user->authorise('core.edit.own', 'com_shadowsocks.server.' . $recordId))
+				if ($user->authorise('server.edit.own', 'com_shadowsocks.server.' . $recordId))
 				{
 					// Now test the owner is the user.
 					$ownerId = (int) isset($data['created_by']) ? $data['created_by'] : 0;
@@ -99,7 +106,7 @@ class ShadowsocksControllerServer extends JControllerForm
 					// If the owner matches 'me' then allow.
 					if ($ownerId == $user->id)
 					{
-						if ($user->authorise('core.edit.own', 'com_shadowsocks'))
+						if ($user->authorise('server.edit.own', 'com_shadowsocks'))
 						{
 							return true;
 						}
@@ -109,7 +116,7 @@ class ShadowsocksControllerServer extends JControllerForm
 			}
 		}
 		// Since there is no permission, revert to the component permissions.
-		return parent::allowEdit($data, $key);
+		return $user->authorise('server.edit', $this->option);
 	}
 
 	/**

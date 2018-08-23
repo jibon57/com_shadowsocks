@@ -42,10 +42,10 @@ class ShadowsocksViewPackages extends JViewLegacy
 		$this->saveOrder = $this->listOrder == 'ordering';
 		// get global action permissions
 		$this->canDo = ShadowsocksHelper::getActions('package');
-		$this->canEdit = $this->canDo->get('core.edit');
-		$this->canState = $this->canDo->get('core.edit.state');
-		$this->canCreate = $this->canDo->get('core.create');
-		$this->canDelete = $this->canDo->get('core.delete');
+		$this->canEdit = $this->canDo->get('package.edit');
+		$this->canState = $this->canDo->get('package.edit.state');
+		$this->canCreate = $this->canDo->get('package.create');
+		$this->canDelete = $this->canDo->get('package.delete');
 		$this->canBatch = $this->canDo->get('core.batch');
 
 		// We don't need toolbar in the modal window.

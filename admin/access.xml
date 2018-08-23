@@ -17,26 +17,103 @@
 		<action name="core.edit.created" title="COM_SHADOWSOCKS_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_EDIT_CREATED_DATE_DESC" />
 		<action name="package.access" title="COM_SHADOWSOCKS_PACKAGES_ACCESS" description="COM_SHADOWSOCKS_PACKAGES_ACCESS_DESC" />
 		<action name="package.batch" title="COM_SHADOWSOCKS_PACKAGES_BATCH_USE" description="COM_SHADOWSOCKS_PACKAGES_BATCH_USE_DESC" />
+		<action name="package.create" title="COM_SHADOWSOCKS_PACKAGES_CREATE" description="COM_SHADOWSOCKS_PACKAGES_CREATE_DESC" />
 		<action name="package.dashboard_add" title="COM_SHADOWSOCKS_PACKAGES_DASHBOARD_ADD" description="COM_SHADOWSOCKS_PACKAGES_DASHBOARD_ADD_DESC" />
 		<action name="package.dashboard_list" title="COM_SHADOWSOCKS_PACKAGES_DASHBOARD_LIST" description="COM_SHADOWSOCKS_PACKAGES_DASHBOARD_LIST_DESC" />
+		<action name="package.delete" title="COM_SHADOWSOCKS_PACKAGES_DELETE" description="COM_SHADOWSOCKS_PACKAGES_DELETE_DESC" />
+		<action name="package.edit" title="COM_SHADOWSOCKS_PACKAGES_EDIT" description="COM_SHADOWSOCKS_PACKAGES_EDIT_DESC" />
+		<action name="package.edit.created_by" title="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_BY" description="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_BY_DESC" />
+		<action name="package.edit.created" title="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_DATE_DESC" />
+		<action name="package.edit.own" title="COM_SHADOWSOCKS_PACKAGES_EDIT_OWN" description="COM_SHADOWSOCKS_PACKAGES_EDIT_OWN_DESC" />
+		<action name="package.edit.state" title="COM_SHADOWSOCKS_PACKAGES_EDIT_STATE" description="COM_SHADOWSOCKS_PACKAGES_EDIT_STATE_DESC" />
 		<action name="package.export" title="COM_SHADOWSOCKS_PACKAGES_EXPORT" description="COM_SHADOWSOCKS_PACKAGES_EXPORT_DESC" />
 		<action name="package.import" title="COM_SHADOWSOCKS_PACKAGES_IMPORT" description="COM_SHADOWSOCKS_PACKAGES_IMPORT_DESC" />
 		<action name="package.submenu" title="COM_SHADOWSOCKS_PACKAGES_SUBMENU" description="COM_SHADOWSOCKS_PACKAGES_SUBMENU_DESC" />
 		<action name="server.access" title="COM_SHADOWSOCKS_SERVERS_ACCESS" description="COM_SHADOWSOCKS_SERVERS_ACCESS_DESC" />
 		<action name="server.batch" title="COM_SHADOWSOCKS_SERVERS_BATCH_USE" description="COM_SHADOWSOCKS_SERVERS_BATCH_USE_DESC" />
+		<action name="server.create" title="COM_SHADOWSOCKS_SERVERS_CREATE" description="COM_SHADOWSOCKS_SERVERS_CREATE_DESC" />
 		<action name="server.dashboard_add" title="COM_SHADOWSOCKS_SERVERS_DASHBOARD_ADD" description="COM_SHADOWSOCKS_SERVERS_DASHBOARD_ADD_DESC" />
 		<action name="server.dashboard_list" title="COM_SHADOWSOCKS_SERVERS_DASHBOARD_LIST" description="COM_SHADOWSOCKS_SERVERS_DASHBOARD_LIST_DESC" />
+		<action name="server.delete" title="COM_SHADOWSOCKS_SERVERS_DELETE" description="COM_SHADOWSOCKS_SERVERS_DELETE_DESC" />
+		<action name="server.edit" title="COM_SHADOWSOCKS_SERVERS_EDIT" description="COM_SHADOWSOCKS_SERVERS_EDIT_DESC" />
+		<action name="server.edit.created_by" title="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_BY" description="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_BY_DESC" />
+		<action name="server.edit.created" title="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_DATE_DESC" />
+		<action name="server.edit.own" title="COM_SHADOWSOCKS_SERVERS_EDIT_OWN" description="COM_SHADOWSOCKS_SERVERS_EDIT_OWN_DESC" />
+		<action name="server.edit.state" title="COM_SHADOWSOCKS_SERVERS_EDIT_STATE" description="COM_SHADOWSOCKS_SERVERS_EDIT_STATE_DESC" />
 		<action name="server.export" title="COM_SHADOWSOCKS_SERVERS_EXPORT" description="COM_SHADOWSOCKS_SERVERS_EXPORT_DESC" />
 		<action name="server.import" title="COM_SHADOWSOCKS_SERVERS_IMPORT" description="COM_SHADOWSOCKS_SERVERS_IMPORT_DESC" />
 		<action name="server.submenu" title="COM_SHADOWSOCKS_SERVERS_SUBMENU" description="COM_SHADOWSOCKS_SERVERS_SUBMENU_DESC" />
 		<action name="user.qr_code" title="COM_SHADOWSOCKS_USER_QR_CODE_BUTTON_ACCESS" description="COM_SHADOWSOCKS_USER_QR_CODE_BUTTON_ACCESS_DESC" />
 		<action name="user.access" title="COM_SHADOWSOCKS_USERS_ACCESS" description="COM_SHADOWSOCKS_USERS_ACCESS_DESC" />
 		<action name="user.batch" title="COM_SHADOWSOCKS_USERS_BATCH_USE" description="COM_SHADOWSOCKS_USERS_BATCH_USE_DESC" />
+		<action name="user.create" title="COM_SHADOWSOCKS_USERS_CREATE" description="COM_SHADOWSOCKS_USERS_CREATE_DESC" />
 		<action name="user.dashboard_add" title="COM_SHADOWSOCKS_USERS_DASHBOARD_ADD" description="COM_SHADOWSOCKS_USERS_DASHBOARD_ADD_DESC" />
 		<action name="user.dashboard_list" title="COM_SHADOWSOCKS_USERS_DASHBOARD_LIST" description="COM_SHADOWSOCKS_USERS_DASHBOARD_LIST_DESC" />
+		<action name="user.delete" title="COM_SHADOWSOCKS_USERS_DELETE" description="COM_SHADOWSOCKS_USERS_DELETE_DESC" />
+		<action name="user.edit" title="COM_SHADOWSOCKS_USERS_EDIT" description="COM_SHADOWSOCKS_USERS_EDIT_DESC" />
+		<action name="user.edit.created_by" title="COM_SHADOWSOCKS_USERS_EDIT_CREATED_BY" description="COM_SHADOWSOCKS_USERS_EDIT_CREATED_BY_DESC" />
+		<action name="user.edit.created" title="COM_SHADOWSOCKS_USERS_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_USERS_EDIT_CREATED_DATE_DESC" />
+		<action name="user.edit.own" title="COM_SHADOWSOCKS_USERS_EDIT_OWN" description="COM_SHADOWSOCKS_USERS_EDIT_OWN_DESC" />
+		<action name="user.edit.state" title="COM_SHADOWSOCKS_USERS_EDIT_STATE" description="COM_SHADOWSOCKS_USERS_EDIT_STATE_DESC" />
 		<action name="user.export" title="COM_SHADOWSOCKS_USERS_EXPORT" description="COM_SHADOWSOCKS_USERS_EXPORT_DESC" />
 		<action name="user.import" title="COM_SHADOWSOCKS_USERS_IMPORT" description="COM_SHADOWSOCKS_USERS_IMPORT_DESC" />
 		<action name="user.submenu" title="COM_SHADOWSOCKS_USERS_SUBMENU" description="COM_SHADOWSOCKS_USERS_SUBMENU_DESC" />
 	</section>
-
+	<section name="server">
+		<action name="core.edit" title="COM_SHADOWSOCKS_SERVERS_EDIT" description="COM_SHADOWSOCKS_SERVERS_EDIT_DESC" />
+		<action name="core.edit.own" title="COM_SHADOWSOCKS_SERVERS_EDIT_OWN" description="COM_SHADOWSOCKS_SERVERS_EDIT_OWN_DESC" />
+		<action name="core.edit.state" title="COM_SHADOWSOCKS_SERVERS_EDIT_STATE" description="COM_SHADOWSOCKS_SERVERS_EDIT_STATE_DESC" />
+		<action name="core.edit.created_by" title="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_BY" description="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_BY_DESC" />
+		<action name="core.edit.created" title="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_DATE_DESC" />
+		<action name="core.delete" title="COM_SHADOWSOCKS_SERVERS_DELETE" description="COM_SHADOWSOCKS_SERVERS_DELETE_DESC" />
+		<action name="server.edit" title="COM_SHADOWSOCKS_SERVERS_EDIT" description="COM_SHADOWSOCKS_SERVERS_EDIT_DESC" />
+		<action name="server.edit.own" title="COM_SHADOWSOCKS_SERVERS_EDIT_OWN" description="COM_SHADOWSOCKS_SERVERS_EDIT_OWN_DESC" />
+		<action name="server.edit.state" title="COM_SHADOWSOCKS_SERVERS_EDIT_STATE" description="COM_SHADOWSOCKS_SERVERS_EDIT_STATE_DESC" />
+		<action name="server.edit.created_by" title="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_BY" description="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_BY_DESC" />
+		<action name="server.edit.created" title="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_SERVERS_EDIT_CREATED_DATE_DESC" />
+		<action name="server.create" title="COM_SHADOWSOCKS_SERVERS_CREATE" description="COM_SHADOWSOCKS_SERVERS_CREATE_DESC" />
+		<action name="server.delete" title="COM_SHADOWSOCKS_SERVERS_DELETE" description="COM_SHADOWSOCKS_SERVERS_DELETE_DESC" />
+		<action name="server.access" title="COM_SHADOWSOCKS_SERVERS_ACCESS" description="COM_SHADOWSOCKS_SERVERS_ACCESS_DESC" />
+	</section>
+	<section name="package">
+		<action name="core.edit" title="COM_SHADOWSOCKS_PACKAGES_EDIT" description="COM_SHADOWSOCKS_PACKAGES_EDIT_DESC" />
+		<action name="core.edit.own" title="COM_SHADOWSOCKS_PACKAGES_EDIT_OWN" description="COM_SHADOWSOCKS_PACKAGES_EDIT_OWN_DESC" />
+		<action name="core.edit.state" title="COM_SHADOWSOCKS_PACKAGES_EDIT_STATE" description="COM_SHADOWSOCKS_PACKAGES_EDIT_STATE_DESC" />
+		<action name="core.edit.created_by" title="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_BY" description="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_BY_DESC" />
+		<action name="core.edit.created" title="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_DATE_DESC" />
+		<action name="core.create" title="COM_SHADOWSOCKS_PACKAGES_CREATE" description="COM_SHADOWSOCKS_PACKAGES_CREATE_DESC" />
+		<action name="core.delete" title="COM_SHADOWSOCKS_PACKAGES_DELETE" description="COM_SHADOWSOCKS_PACKAGES_DELETE_DESC" />
+		<action name="package.edit" title="COM_SHADOWSOCKS_PACKAGES_EDIT" description="COM_SHADOWSOCKS_PACKAGES_EDIT_DESC" />
+		<action name="package.edit.own" title="COM_SHADOWSOCKS_PACKAGES_EDIT_OWN" description="COM_SHADOWSOCKS_PACKAGES_EDIT_OWN_DESC" />
+		<action name="package.edit.state" title="COM_SHADOWSOCKS_PACKAGES_EDIT_STATE" description="COM_SHADOWSOCKS_PACKAGES_EDIT_STATE_DESC" />
+		<action name="package.edit.created_by" title="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_BY" description="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_BY_DESC" />
+		<action name="package.edit.created" title="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_DATE_DESC" />
+		<action name="core.create" title="COM_SHADOWSOCKS_PACKAGES_CREATE" description="COM_SHADOWSOCKS_PACKAGES_CREATE_DESC" />
+		<action name="core.delete" title="COM_SHADOWSOCKS_PACKAGES_DELETE" description="COM_SHADOWSOCKS_PACKAGES_DELETE_DESC" />
+		<action name="package.edit" title="COM_SHADOWSOCKS_PACKAGES_EDIT" description="COM_SHADOWSOCKS_PACKAGES_EDIT_DESC" />
+		<action name="package.edit.own" title="COM_SHADOWSOCKS_PACKAGES_EDIT_OWN" description="COM_SHADOWSOCKS_PACKAGES_EDIT_OWN_DESC" />
+		<action name="package.edit.state" title="COM_SHADOWSOCKS_PACKAGES_EDIT_STATE" description="COM_SHADOWSOCKS_PACKAGES_EDIT_STATE_DESC" />
+		<action name="package.edit.created_by" title="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_BY" description="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_BY_DESC" />
+		<action name="package.edit.created" title="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_PACKAGES_EDIT_CREATED_DATE_DESC" />
+		<action name="package.create" title="COM_SHADOWSOCKS_PACKAGES_CREATE" description="COM_SHADOWSOCKS_PACKAGES_CREATE_DESC" />
+		<action name="package.delete" title="COM_SHADOWSOCKS_PACKAGES_DELETE" description="COM_SHADOWSOCKS_PACKAGES_DELETE_DESC" />
+		<action name="package.access" title="COM_SHADOWSOCKS_PACKAGES_ACCESS" description="COM_SHADOWSOCKS_PACKAGES_ACCESS_DESC" />
+	</section>
+	<section name="user">
+		<action name="core.edit" title="COM_SHADOWSOCKS_USERS_EDIT" description="COM_SHADOWSOCKS_USERS_EDIT_DESC" />
+		<action name="core.edit.own" title="COM_SHADOWSOCKS_USERS_EDIT_OWN" description="COM_SHADOWSOCKS_USERS_EDIT_OWN_DESC" />
+		<action name="core.edit.state" title="COM_SHADOWSOCKS_USERS_EDIT_STATE" description="COM_SHADOWSOCKS_USERS_EDIT_STATE_DESC" />
+		<action name="core.edit.created_by" title="COM_SHADOWSOCKS_USERS_EDIT_CREATED_BY" description="COM_SHADOWSOCKS_USERS_EDIT_CREATED_BY_DESC" />
+		<action name="core.edit.created" title="COM_SHADOWSOCKS_USERS_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_USERS_EDIT_CREATED_DATE_DESC" />
+		<action name="core.create" title="COM_SHADOWSOCKS_USERS_CREATE" description="COM_SHADOWSOCKS_USERS_CREATE_DESC" />
+		<action name="core.delete" title="COM_SHADOWSOCKS_USERS_DELETE" description="COM_SHADOWSOCKS_USERS_DELETE_DESC" />
+		<action name="user.edit" title="COM_SHADOWSOCKS_USERS_EDIT" description="COM_SHADOWSOCKS_USERS_EDIT_DESC" />
+		<action name="user.edit.own" title="COM_SHADOWSOCKS_USERS_EDIT_OWN" description="COM_SHADOWSOCKS_USERS_EDIT_OWN_DESC" />
+		<action name="user.edit.state" title="COM_SHADOWSOCKS_USERS_EDIT_STATE" description="COM_SHADOWSOCKS_USERS_EDIT_STATE_DESC" />
+		<action name="user.edit.created_by" title="COM_SHADOWSOCKS_USERS_EDIT_CREATED_BY" description="COM_SHADOWSOCKS_USERS_EDIT_CREATED_BY_DESC" />
+		<action name="user.edit.created" title="COM_SHADOWSOCKS_USERS_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_USERS_EDIT_CREATED_DATE_DESC" />
+		<action name="user.create" title="COM_SHADOWSOCKS_USERS_CREATE" description="COM_SHADOWSOCKS_USERS_CREATE_DESC" />
+		<action name="user.delete" title="COM_SHADOWSOCKS_USERS_DELETE" description="COM_SHADOWSOCKS_USERS_DELETE_DESC" />
+		<action name="user.access" title="COM_SHADOWSOCKS_USERS_ACCESS" description="COM_SHADOWSOCKS_USERS_ACCESS_DESC" />
+	</section>
 </access>

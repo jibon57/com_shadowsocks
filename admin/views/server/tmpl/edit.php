@@ -56,7 +56,7 @@ $componentParams = JComponentHelper::getParams('com_shadowsocks');
 		</div>
 	<?php echo JHtml::_('bootstrap.endTab'); ?>
 
-	<?php if ($this->canDo->get('core.delete') || $this->canDo->get('core.edit.created_by') || $this->canDo->get('core.edit.state') || $this->canDo->get('core.edit.created')) : ?>
+	<?php if ($this->canDo->get('server.delete') || $this->canDo->get('server.edit.created_by') || $this->canDo->get('server.edit.state') || $this->canDo->get('server.edit.created')) : ?>
 	<?php echo JHtml::_('bootstrap.addTab', 'serverTab', 'publishing', JText::_('COM_SHADOWSOCKS_SERVER_PUBLISHING', true)); ?>
 		<div class="row-fluid form-horizontal-desktop">
 			<div class="span6">

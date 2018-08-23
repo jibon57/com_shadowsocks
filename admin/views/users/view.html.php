@@ -42,10 +42,10 @@ class ShadowsocksViewUsers extends JViewLegacy
 		$this->saveOrder = $this->listOrder == 'ordering';
 		// get global action permissions
 		$this->canDo = ShadowsocksHelper::getActions('user');
-		$this->canEdit = $this->canDo->get('core.edit');
-		$this->canState = $this->canDo->get('core.edit.state');
-		$this->canCreate = $this->canDo->get('core.create');
-		$this->canDelete = $this->canDo->get('core.delete');
+		$this->canEdit = $this->canDo->get('user.edit');
+		$this->canState = $this->canDo->get('user.edit.state');
+		$this->canCreate = $this->canDo->get('user.create');
+		$this->canDelete = $this->canDo->get('user.delete');
 		$this->canBatch = $this->canDo->get('core.batch');
 
 		// We don't need toolbar in the modal window.

@@ -92,7 +92,22 @@ class ShadowsocksModelUsers extends JModelList
 	public function getItems()
 	{ 
 		// load parent items
-		$items = parent::getItems();  
+		$items = parent::getItems();
+
+		// set values to display correctly.
+		if (ShadowsocksHelper::checkArray($items))
+		{
+			foreach ($items as $nr => &$item)
+			{
+				$access = (JFactory::getUser()->authorise('user.access', 'com_shadowsocks.user.' . (int) $item->id) && JFactory::getUser()->authorise('user.access', 'com_shadowsocks'));
+				if (!$access)
+				{
+					unset($items[$nr]);
+					continue;
+				}
+
+			}
+		}  
 		foreach ($items as $item){
 			if($item->ss_user_traffic > 0){
 				$item->ss_user_traffic = round($item->ss_user_traffic / 1000000, 2);
@@ -229,6 +244,13 @@ class ShadowsocksModelUsers extends JModelList
 				{
 					foreach ($items as $nr => &$item)
 					{
+						$access = (JFactory::getUser()->authorise('user.access', 'com_shadowsocks.user.' . (int) $item->id) && JFactory::getUser()->authorise('user.access', 'com_shadowsocks'));
+						if (!$access)
+						{
+							unset($items[$nr]);
+							continue;
+						}
+
 						// unset the values we don't want exported.
 						unset($item->asset_id);
 						unset($item->checked_out);

@@ -33,16 +33,19 @@ class ShadowsocksModelShadowsocks extends JModelList
 		);
 		// view access array
 		$viewAccess = array(
+			'server.create' => 'server.create',
 			'servers.access' => 'server.access',
 			'server.access' => 'server.access',
 			'servers.submenu' => 'server.submenu',
 			'servers.dashboard_list' => 'server.dashboard_list',
 			'server.dashboard_add' => 'server.dashboard_add',
+			'package.create' => 'package.create',
 			'packages.access' => 'package.access',
 			'package.access' => 'package.access',
 			'packages.submenu' => 'package.submenu',
 			'packages.dashboard_list' => 'package.dashboard_list',
 			'package.dashboard_add' => 'package.dashboard_add',
+			'user.create' => 'user.create',
 			'users.access' => 'user.access',
 			'user.access' => 'user.access',
 			'users.submenu' => 'user.submenu',

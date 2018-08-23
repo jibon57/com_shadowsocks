@@ -92,7 +92,22 @@ class ShadowsocksModelPackages extends JModelList
 	public function getItems()
 	{ 
 		// load parent items
-		$items = parent::getItems(); 
+		$items = parent::getItems();
+
+		// set values to display correctly.
+		if (ShadowsocksHelper::checkArray($items))
+		{
+			foreach ($items as $nr => &$item)
+			{
+				$access = (JFactory::getUser()->authorise('package.access', 'com_shadowsocks.package.' . (int) $item->id) && JFactory::getUser()->authorise('package.access', 'com_shadowsocks'));
+				if (!$access)
+				{
+					unset($items[$nr]);
+					continue;
+				}
+
+			}
+		} 
 
 		// set selection value to a translatable value
 		if (ShadowsocksHelper::checkArray($items))
@@ -250,6 +265,13 @@ class ShadowsocksModelPackages extends JModelList
 				{
 					foreach ($items as $nr => &$item)
 					{
+						$access = (JFactory::getUser()->authorise('package.access', 'com_shadowsocks.package.' . (int) $item->id) && JFactory::getUser()->authorise('package.access', 'com_shadowsocks'));
+						if (!$access)
+						{
+							unset($items[$nr]);
+							continue;
+						}
+
 						// unset the values we don't want exported.
 						unset($item->asset_id);
 						unset($item->checked_out);
