@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	addrulepath="/administrator/components/com_shadowsocks/models/rules"
+	addfieldpath="/administrator/components/com_shadowsocks/models/fields"
+>
+	<fieldset name="details">
+		<!-- Default Fields. -->
+		<!-- Id Field. Type: Text (joomla) -->
+		<field
+			name="id"
+			type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
+			readonly="true"
+		/>
+		<!-- Date Created Field. Type: Calendar (joomla) -->
+		<field
+			name="created"
+			type="calendar"
+			label="COM_SHADOWSOCKS_PACKAGE_CREATED_DATE_LABEL"
+			description="COM_SHADOWSOCKS_PACKAGE_CREATED_DATE_DESC"
+			size="22"
+			format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc"
+		/>
+		<!-- User Created Field. Type: User (joomla) -->
+		<field
+			name="created_by"
+			type="user"
+			label="COM_SHADOWSOCKS_PACKAGE_CREATED_BY_LABEL"
+			description="COM_SHADOWSOCKS_PACKAGE_CREATED_BY_DESC"
+		/>
+		<!-- Published Field. Type: List (joomla) -->
+		<field name="published" type="list" label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC" class="chzn-color-state"
+			filter="intval" size="1" default="1" >
+			<option value="1">
+				JPUBLISHED</option>
+			<option value="0">
+				JUNPUBLISHED</option>
+			<option value="2">
+				JARCHIVED</option>
+			<option value="-2">
+				JTRASHED</option>
+		</field>
+		<!-- Date Modified Field. Type: Calendar (joomla) -->
+		<field name="modified" type="calendar" class="readonly"
+			label="COM_SHADOWSOCKS_PACKAGE_MODIFIED_DATE_LABEL" description="COM_SHADOWSOCKS_PACKAGE_MODIFIED_DATE_DESC"
+			size="22" readonly="true" format="%Y-%m-%d %H:%M:%S" filter="user_utc" />
+		<!-- User Modified Field. Type: User (joomla) -->
+		<field name="modified_by" type="user"
+			label="COM_SHADOWSOCKS_PACKAGE_MODIFIED_BY_LABEL"
+			description="COM_SHADOWSOCKS_PACKAGE_MODIFIED_BY_DESC"
+			class="readonly"
+			readonly="true"
+			filter="unset"
+		/>
+		<!-- Access Field. Type: Accesslevel (joomla) -->
+		<field name="access"
+			type="accesslevel"
+			label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC"
+			default="1"
+			required="false"
+		/>
+		<!-- Ordering Field. Type: Numbers (joomla) -->
+		<field
+			name="ordering"
+			type="number"
+			class="inputbox validate-ordering"
+			label="COM_SHADOWSOCKS_PACKAGE_ORDERING_LABEL"
+			description=""
+			default="0"
+			size="6"
+			required="false"
+		/>
+		<!-- Version Field. Type: Text (joomla) -->
+		<field
+			name="version"
+			type="text"
+			class="readonly"
+			label="COM_SHADOWSOCKS_PACKAGE_VERSION_LABEL"
+			description="COM_SHADOWSOCKS_PACKAGE_VERSION_DESC"
+			size="6"
+			readonly="true"
+			filter="unset"
+		/>
+		<!-- Dynamic Fields. -->
+		<!-- Ss_package_name Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="ss_package_name"
+			label="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_NAME_LABEL"
+			size="10"
+			maxlength="50"
+			description="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_NAME_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="true"
+			filter="STRING"
+			message="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_NAME_MESSAGE"
+			hint="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_NAME_HINT"
+			autocomplete="on"
+		/>
+		<!-- Ss_package_traffic Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="ss_package_traffic"
+			label="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_TRAFFIC_LABEL"
+			size="10"
+			maxlength="50"
+			description="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_TRAFFIC_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="true"
+			filter="STRING"
+			message="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_TRAFFIC_MESSAGE"
+			hint="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_TRAFFIC_HINT"
+			autocomplete="on"
+		/>
+		<!-- Ss_package_duration Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="ss_package_duration"
+			label="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_DURATION_LABEL"
+			size="10"
+			maxlength="2"
+			description="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_DURATION_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="true"
+			filter="STRING"
+			message="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_DURATION_MESSAGE"
+			hint="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_DURATION_HINT"
+			autocomplete="on"
+		/>
+		<!-- Ss_package_period Field. Type: List. (joomla) -->
+		<field
+			type="list"
+			name="ss_package_period"
+			label="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_PERIOD_LABEL"
+			description="COM_SHADOWSOCKS_PACKAGE_SS_PACKAGE_PERIOD_DESCRIPTION"
+			class="list_class"
+			multiple="false"
+			required="true"
+			default="0">
+			<!-- Option Set. -->
+			<option value="0">
+				COM_SHADOWSOCKS_PACKAGE_DAY</option>
+			<option value="1">
+				COM_SHADOWSOCKS_PACKAGE_MONTH</option>
+			<option value="2">
+				COM_SHADOWSOCKS_PACKAGE_YEAR</option>
+		</field>
+	</fieldset>
+	
+	<!-- Access Control Fields. -->
+	<fieldset name="accesscontrol">
+		<!-- Asset Id Field. Type: Hidden (joomla) -->
+		<field
+			name="asset_id"
+			type="hidden"
+			filter="unset"
+		/>
+		<!-- Rules Field. Type: Rules (joomla) -->
+		<field
+			name="rules"
+			type="rules"
+			label="Permissions in relation to this package"
+			translate_label="false"
+			filter="rules"
+			validate="rules"
+			class="inputbox"
+			component="com_shadowsocks"
+			section="package"
+		/>
+	</fieldset>
+</form>

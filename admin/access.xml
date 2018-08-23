@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<access component="com_shadowsocks">
+	<section name="component">
+		<action name="core.admin" title="JACTION_ADMIN" description="JACTION_ADMIN_COMPONENT_DESC" />
+		<action name="core.options" title="JACTION_OPTIONS" description="JACTION_OPTIONS_COMPONENT_DESC" />
+		<action name="core.manage" title="JACTION_MANAGE" description="JACTION_MANAGE_COMPONENT_DESC" />
+		<action name="core.export" title="COM_SHADOWSOCKS_EXPORT_DATA" description="COM_SHADOWSOCKS_EXPORT_DATA_DESC" />
+		<action name="core.import" title="COM_SHADOWSOCKS_IMPORT_DATA" description="COM_SHADOWSOCKS_IMPORT_DATA_DESC" />
+		<action name="core.batch" title="COM_SHADOWSOCKS_USE_BATCH" description="COM_SHADOWSOCKS_USE_BATCH_DESC" />
+		<action name="core.version" title="COM_SHADOWSOCKS_EDIT_VERSIONS" description="COM_SHADOWSOCKS_EDIT_VERSIONS_DESC" />
+		<action name="core.create" title="JACTION_CREATE" description="JACTION_CREATE_COMPONENT_DESC" />
+		<action name="core.delete" title="JACTION_DELETE" description="JACTION_DELETE_COMPONENT_DESC" />
+		<action name="core.edit" title="JACTION_EDIT" description="JACTION_EDIT_COMPONENT_DESC" />
+		<action name="core.edit.state" title="JACTION_EDITSTATE" description="JACTION_ACCESS_EDITSTATE_DESC" />
+		<action name="core.edit.own" title="JACTION_EDITOWN" description="JACTION_EDITOWN_COMPONENT_DESC" />
+		<action name="core.edit.created_by" title="COM_SHADOWSOCKS_EDIT_CREATED_BY" description="COM_SHADOWSOCKS_EDIT_CREATED_BY_DESC" />
+		<action name="core.edit.created" title="COM_SHADOWSOCKS_EDIT_CREATED_DATE" description="COM_SHADOWSOCKS_EDIT_CREATED_DATE_DESC" />
+		<action name="package.access" title="COM_SHADOWSOCKS_PACKAGES_ACCESS" description="COM_SHADOWSOCKS_PACKAGES_ACCESS_DESC" />
+		<action name="package.batch" title="COM_SHADOWSOCKS_PACKAGES_BATCH_USE" description="COM_SHADOWSOCKS_PACKAGES_BATCH_USE_DESC" />
+		<action name="package.dashboard_add" title="COM_SHADOWSOCKS_PACKAGES_DASHBOARD_ADD" description="COM_SHADOWSOCKS_PACKAGES_DASHBOARD_ADD_DESC" />
+		<action name="package.dashboard_list" title="COM_SHADOWSOCKS_PACKAGES_DASHBOARD_LIST" description="COM_SHADOWSOCKS_PACKAGES_DASHBOARD_LIST_DESC" />
+		<action name="package.export" title="COM_SHADOWSOCKS_PACKAGES_EXPORT" description="COM_SHADOWSOCKS_PACKAGES_EXPORT_DESC" />
+		<action name="package.import" title="COM_SHADOWSOCKS_PACKAGES_IMPORT" description="COM_SHADOWSOCKS_PACKAGES_IMPORT_DESC" />
+		<action name="package.submenu" title="COM_SHADOWSOCKS_PACKAGES_SUBMENU" description="COM_SHADOWSOCKS_PACKAGES_SUBMENU_DESC" />
+		<action name="server.access" title="COM_SHADOWSOCKS_SERVERS_ACCESS" description="COM_SHADOWSOCKS_SERVERS_ACCESS_DESC" />
+		<action name="server.batch" title="COM_SHADOWSOCKS_SERVERS_BATCH_USE" description="COM_SHADOWSOCKS_SERVERS_BATCH_USE_DESC" />
+		<action name="server.dashboard_add" title="COM_SHADOWSOCKS_SERVERS_DASHBOARD_ADD" description="COM_SHADOWSOCKS_SERVERS_DASHBOARD_ADD_DESC" />
+		<action name="server.dashboard_list" title="COM_SHADOWSOCKS_SERVERS_DASHBOARD_LIST" description="COM_SHADOWSOCKS_SERVERS_DASHBOARD_LIST_DESC" />
+		<action name="server.export" title="COM_SHADOWSOCKS_SERVERS_EXPORT" description="COM_SHADOWSOCKS_SERVERS_EXPORT_DESC" />
+		<action name="server.import" title="COM_SHADOWSOCKS_SERVERS_IMPORT" description="COM_SHADOWSOCKS_SERVERS_IMPORT_DESC" />
+		<action name="server.submenu" title="COM_SHADOWSOCKS_SERVERS_SUBMENU" description="COM_SHADOWSOCKS_SERVERS_SUBMENU_DESC" />
+		<action name="user.qr_code" title="COM_SHADOWSOCKS_USER_QR_CODE_BUTTON_ACCESS" description="COM_SHADOWSOCKS_USER_QR_CODE_BUTTON_ACCESS_DESC" />
+		<action name="user.access" title="COM_SHADOWSOCKS_USERS_ACCESS" description="COM_SHADOWSOCKS_USERS_ACCESS_DESC" />
+		<action name="user.batch" title="COM_SHADOWSOCKS_USERS_BATCH_USE" description="COM_SHADOWSOCKS_USERS_BATCH_USE_DESC" />
+		<action name="user.dashboard_add" title="COM_SHADOWSOCKS_USERS_DASHBOARD_ADD" description="COM_SHADOWSOCKS_USERS_DASHBOARD_ADD_DESC" />
+		<action name="user.dashboard_list" title="COM_SHADOWSOCKS_USERS_DASHBOARD_LIST" description="COM_SHADOWSOCKS_USERS_DASHBOARD_LIST_DESC" />
+		<action name="user.export" title="COM_SHADOWSOCKS_USERS_EXPORT" description="COM_SHADOWSOCKS_USERS_EXPORT_DESC" />
+		<action name="user.import" title="COM_SHADOWSOCKS_USERS_IMPORT" description="COM_SHADOWSOCKS_USERS_IMPORT_DESC" />
+		<action name="user.submenu" title="COM_SHADOWSOCKS_USERS_SUBMENU" description="COM_SHADOWSOCKS_USERS_SUBMENU_DESC" />
+	</section>
+
+</access>

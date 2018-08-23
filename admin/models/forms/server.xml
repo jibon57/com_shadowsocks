@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	addrulepath="/administrator/components/com_shadowsocks/models/rules"
+	addfieldpath="/administrator/components/com_shadowsocks/models/fields"
+>
+	<fieldset name="details">
+		<!-- Default Fields. -->
+		<!-- Id Field. Type: Text (joomla) -->
+		<field
+			name="id"
+			type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
+			readonly="true"
+		/>
+		<!-- Date Created Field. Type: Calendar (joomla) -->
+		<field
+			name="created"
+			type="calendar"
+			label="COM_SHADOWSOCKS_SERVER_CREATED_DATE_LABEL"
+			description="COM_SHADOWSOCKS_SERVER_CREATED_DATE_DESC"
+			size="22"
+			format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc"
+		/>
+		<!-- User Created Field. Type: User (joomla) -->
+		<field
+			name="created_by"
+			type="user"
+			label="COM_SHADOWSOCKS_SERVER_CREATED_BY_LABEL"
+			description="COM_SHADOWSOCKS_SERVER_CREATED_BY_DESC"
+		/>
+		<!-- Published Field. Type: List (joomla) -->
+		<field name="published" type="list" label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC" class="chzn-color-state"
+			filter="intval" size="1" default="1" >
+			<option value="1">
+				JPUBLISHED</option>
+			<option value="0">
+				JUNPUBLISHED</option>
+			<option value="2">
+				JARCHIVED</option>
+			<option value="-2">
+				JTRASHED</option>
+		</field>
+		<!-- Date Modified Field. Type: Calendar (joomla) -->
+		<field name="modified" type="calendar" class="readonly"
+			label="COM_SHADOWSOCKS_SERVER_MODIFIED_DATE_LABEL" description="COM_SHADOWSOCKS_SERVER_MODIFIED_DATE_DESC"
+			size="22" readonly="true" format="%Y-%m-%d %H:%M:%S" filter="user_utc" />
+		<!-- User Modified Field. Type: User (joomla) -->
+		<field name="modified_by" type="user"
+			label="COM_SHADOWSOCKS_SERVER_MODIFIED_BY_LABEL"
+			description="COM_SHADOWSOCKS_SERVER_MODIFIED_BY_DESC"
+			class="readonly"
+			readonly="true"
+			filter="unset"
+		/>
+		<!-- Access Field. Type: Accesslevel (joomla) -->
+		<field name="access"
+			type="accesslevel"
+			label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC"
+			default="1"
+			required="false"
+		/>
+		<!-- Ordering Field. Type: Numbers (joomla) -->
+		<field
+			name="ordering"
+			type="number"
+			class="inputbox validate-ordering"
+			label="COM_SHADOWSOCKS_SERVER_ORDERING_LABEL"
+			description=""
+			default="0"
+			size="6"
+			required="false"
+		/>
+		<!-- Version Field. Type: Text (joomla) -->
+		<field
+			name="version"
+			type="text"
+			class="readonly"
+			label="COM_SHADOWSOCKS_SERVER_VERSION_LABEL"
+			description="COM_SHADOWSOCKS_SERVER_VERSION_DESC"
+			size="6"
+			readonly="true"
+			filter="unset"
+		/>
+		<!-- Dynamic Fields. -->
+		<!-- Ss_server_name Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="ss_server_name"
+			label="COM_SHADOWSOCKS_SERVER_SS_SERVER_NAME_LABEL"
+			size="10"
+			maxlength="50"
+			description="COM_SHADOWSOCKS_SERVER_SS_SERVER_NAME_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="true"
+			filter="STRING"
+			message="COM_SHADOWSOCKS_SERVER_SS_SERVER_NAME_MESSAGE"
+			hint="COM_SHADOWSOCKS_SERVER_SS_SERVER_NAME_HINT"
+			autocomplete="on"
+		/>
+		<!-- Ss_server_host Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="ss_server_host"
+			label="COM_SHADOWSOCKS_SERVER_SS_SERVER_HOST_LABEL"
+			size="10"
+			maxlength="50"
+			description="COM_SHADOWSOCKS_SERVER_SS_SERVER_HOST_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="true"
+			filter="STRING"
+			validate="ipaddress"
+			message="COM_SHADOWSOCKS_SERVER_SS_SERVER_HOST_MESSAGE"
+			hint="COM_SHADOWSOCKS_SERVER_SS_SERVER_HOST_HINT"
+			autocomplete="off"
+		/>
+		<!-- Ss_server_port Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="ss_server_port"
+			label="COM_SHADOWSOCKS_SERVER_SS_SERVER_PORT_LABEL"
+			size="10"
+			maxlength="50"
+			description="COM_SHADOWSOCKS_SERVER_SS_SERVER_PORT_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="true"
+			validate="integer"
+			message="COM_SHADOWSOCKS_SERVER_SS_SERVER_PORT_MESSAGE"
+			hint="COM_SHADOWSOCKS_SERVER_SS_SERVER_PORT_HINT"
+			autocomplete="off"
+		/>
+		<!-- Ss_token_time Field. Type: Hidden. (joomla) -->
+		<field
+			type="hidden"
+			name="ss_token_time"
+			default="0000-00-00 00:00:00"
+			filter="STRING"
+		/>
+		<!-- Ss_server_token Field. Type: Hidden. (joomla) -->
+		<field
+			type="hidden"
+			name="ss_server_token"
+			default="0"
+			filter="raw"
+		/>
+		<!-- Ss_server_password Field. Type: Password. (joomla) -->
+		<field
+			type="password"
+			name="ss_server_password"
+			label="COM_SHADOWSOCKS_SERVER_SS_SERVER_PASSWORD_LABEL"
+			size="10"
+			description="COM_SHADOWSOCKS_SERVER_SS_SERVER_PASSWORD_DESCRIPTION"
+			message="Error! Please add password here."
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="true"
+			filter="raw"
+			hint="Server's Password"
+		/>
+	</fieldset>
+	
+	<!-- Access Control Fields. -->
+	<fieldset name="accesscontrol">
+		<!-- Asset Id Field. Type: Hidden (joomla) -->
+		<field
+			name="asset_id"
+			type="hidden"
+			filter="unset"
+		/>
+		<!-- Rules Field. Type: Rules (joomla) -->
+		<field
+			name="rules"
+			type="rules"
+			label="Permissions in relation to this server"
+			translate_label="false"
+			filter="rules"
+			validate="rules"
+			class="inputbox"
+			component="com_shadowsocks"
+			section="server"
+		/>
+	</fieldset>
+</form>
