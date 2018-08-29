@@ -4,7 +4,7 @@
 		<description>Joomla component for Shadowsocks manage</description>
 		<element>com_shadowsocks</element>
 		<type>component</type>
-		<version></version>
+		<version>1.0.1</version>
 		<infourl title="Shadowsocks!">https://www.mynaparrot.com</infourl>
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/shadowsocks/shadowsocks-restful-api/archive/master.zip</downloadurl>

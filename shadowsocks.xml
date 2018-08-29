@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.2" method="upgrade">
 	<name>COM_SHADOWSOCKS</name>
-	<creationDate>23rd August, 2018</creationDate>
+	<creationDate>29th August, 2018</creationDate>
 	<author>Jibon L. Costa</author>
 	<authorEmail>support@mynaparrot.com</authorEmail>
 	<authorUrl>https://www.mynaparrot.com</authorUrl>
 	<copyright>Copyright (C) MynaParrot 2018. All Rights Reserved</copyright>
 	<license>MIT</license>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<description><![CDATA[
-		<h1>Shadowsocks (v.1.0.0)</h1>
+		<h1>Shadowsocks (v.1.0.1)</h1>
 		<div style="clear: both;"></div>
 		<p>Joomla component for managing Shadowsocks using Shadowsocks  Restful Api</p>
 		<p>Created by <a href="https://www.mynaparrot.com" target="_blank">Jibon L. Costa</a><br /><small>Development started 14th August, 2018</small></p>

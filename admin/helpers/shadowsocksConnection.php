@@ -86,7 +86,7 @@ class ShadowsocksConnectionClass{
 		return $return;
 	}
 	
-	public static function createUserPort($serverId, $userPort, $userPassword){
+	public static function createUserPort($serverId, $userPort, $userPassword, $userEncryption){
 		
 		$server = self::getServerToken($serverId);
 	
@@ -103,7 +103,8 @@ class ShadowsocksConnectionClass{
 		
 		$post = http_build_query(array(
 			'port' => $userPort,
-			'password' => $userPassword
+			'password' => $userPassword,
+			'method' => $userEncryption
 		));
 		$authorization = "Authorization: Bearer ". $server['token'];
 
@@ -416,7 +417,7 @@ class ShadowsocksConnectionClass{
 		);
 		
 		if($user->published == 0){
-			$createPort = self::createUserPort($serverId, $user->ss_user_port, $user->ss_user_password);
+			$createPort = self::createUserPort($serverId, $user->ss_user_port, $user->ss_user_password, $user->ss_user_encryption);
 			if($createPort->status){
 				$publish = $db->quoteName('published') .' = '. $db->quote(1);
 				array_push($fields, $publish);

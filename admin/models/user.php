@@ -204,6 +204,7 @@ class ShadowsocksModelUser extends JModelAdmin
 			$form->setFieldAttribute('ss_user_password', 'readonly', 'true');
 			$form->setFieldAttribute('ss_user_port', 'readonly', 'true');
 			$form->setFieldAttribute('ss_user_server', 'readonly', 'true');
+			$form->setFieldAttribute('ss_user_encryption', 'readonly', 'true');
 		}
 		$form->setFieldAttribute('ss_user_traffic', 'type', 'hidden');
 
@@ -425,7 +426,7 @@ class ShadowsocksModelUser extends JModelAdmin
 				if($isNeedCreatePort){
 					foreach($item->ss_user_server as $key => $server){
 					
-						$createPort = ShadowsocksConnectionClass::createUserPort($server, $item->ss_user_port, $item->ss_user_password);
+						$createPort = ShadowsocksConnectionClass::createUserPort($server, $item->ss_user_port, $item->ss_user_password, $item->ss_user_encryption);
 				
 						if(!$createPort->status){
 							JFactory::getApplication()->enqueueMessage(JText::sprintf("COM_SHADOWSOCKS_CANT_CREATE_PORT_FOR_S_NOTICE_S", $id, $createPort->msg), 'error');
@@ -863,7 +864,7 @@ class ShadowsocksModelUser extends JModelAdmin
 			if($isNeedCreatePort){
 				foreach($data['ss_user_server'] as $key => $server){
 					
-					$createPort = ShadowsocksConnectionClass::createUserPort($server, $data['ss_user_port'], $data['ss_user_password']);
+					$createPort = ShadowsocksConnectionClass::createUserPort($server, $data['ss_user_port'], $data['ss_user_password'], $data['ss_user_encryption']);
 					if(!$createPort->status){
 						JFactory::getApplication()->enqueueMessage(JText::sprintf("COM_SHADOWSOCKS_CANT_CREATE_PORT_FOR_SERVER_S_SO_WE_ARE_SKIPPING_THIS_SERVER_NOTICE_S", $server, $createPort->msg), 'notice');
 						unset($data['ss_user_server'][$key]);

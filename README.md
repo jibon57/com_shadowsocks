@@ -21,13 +21,9 @@ First of all you will need to have a working server with `shadowsocks-restful-ap
 
 **Tips**
 ========
-This extension will allow to use only `chacha20-ietf-poly1305` encryption method now. So you can run your shadowsocks manager like this:
-
-`ss-manager -m chacha20-ietf-poly1305 -u --manager-address /tmp/shadowsocks-manager.sock --fast-open`
-
 If you have plan to use plugin then can be like this:
 
-`ss-manager -m chacha20-ietf-poly1305 -u --manager-address /tmp/shadowsocks-manager.sock --fast-open --plugin "/usr/local/bin/obfs-server" --plugin-opts "obfs=http;fast-open"`
+`ss-manager -u --manager-address /tmp/shadowsocks-manager.sock --fast-open --plugin "/usr/local/bin/obfs-server" --plugin-opts "obfs=http;fast-open"`
 
 Cron job command can be use like this:
 

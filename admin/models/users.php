@@ -108,9 +108,10 @@ class ShadowsocksModelUsers extends JModelList
 
 			}
 		}  
-		foreach ($items as $item){
-			if($item->ss_user_traffic > 0){
-				$item->ss_user_traffic = round($item->ss_user_traffic / 1000000, 2);
+
+		foreach ($items as $key => $data){
+			if($data->ss_user_traffic > 0){
+				$data->ss_user_traffic = round($data->ss_user_traffic / 1000000, 2);
 			}
 		}
         
@@ -264,9 +265,10 @@ class ShadowsocksModelUsers extends JModelList
 					array_unshift($items,$headers);
 				}
 
-				foreach ($items as $item){
-			if($item->ss_user_traffic > 0){
-				$item->ss_user_traffic = round($item->ss_user_traffic / 1000000, 2);
+		
+		foreach ($items as $key => $data){
+			if($data->ss_user_traffic > 0){
+				$data->ss_user_traffic = round($data->ss_user_traffic / 1000000, 2);
 			}
 		}
 				return $items;
