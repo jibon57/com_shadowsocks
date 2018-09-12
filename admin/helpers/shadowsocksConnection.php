@@ -505,10 +505,15 @@ class ShadowsocksConnectionClass{
 			
 			$db->setQuery($query);
 			$server = $db->loadObject();
+			
+			$server_name = str_replace(" ", "%20", $server->ss_server_name);
+			$server_name = rtrim($server_name, "%20");
+			
 			$data = base64_encode("{$user->ss_user_encryption}:{$user->ss_user_password}@{$server->ss_server_host}:{$user->ss_user_port}");
-			$ssURL = "ss://". $data . "#" . $server->ss_server_name;
+			$ssURL = "ss://". $data . "#" . $server_name;
 			
 			$QRCode = (new QRCode)->render($ssURL);
+			
 			
 			$tmp = array(
 				'url' => $ssURL,
