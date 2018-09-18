@@ -42,7 +42,7 @@ $componentParams = JComponentHelper::getParams('com_shadowsocks');
 	});
 </script>
 <div id="shadowsocks_loader" style="display: none;">
-<form action="<?php echo JRoute::_('index.php?option=com_shadowsocks&layout=edit&id='.(int) $this->item->id.$this->referral); ?>" method="post" name="adminForm" id="adminForm" class="form-validate" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_('index.php?option=com_shadowsocks&layout=edit&id='. (int) $this->item->id . $this->referral); ?>" method="post" name="adminForm" id="adminForm" class="form-validate" enctype="multipart/form-data">
 
 <div class="form-horizontal">
 
@@ -55,6 +55,10 @@ $componentParams = JComponentHelper::getParams('com_shadowsocks');
 			</div>
 		</div>
 	<?php echo JHtml::_('bootstrap.endTab'); ?>
+
+	<?php $this->ignore_fieldsets = array('details','metadata','vdmmetadata','accesscontrol'); ?>
+	<?php $this->tab_name = 'userTab'; ?>
+	<?php echo JLayoutHelper::render('joomla.edit.params', $this); ?>
 
 	<?php if ($this->canDo->get('user.delete') || $this->canDo->get('user.edit.created_by') || $this->canDo->get('user.edit.state') || $this->canDo->get('user.edit.created')) : ?>
 	<?php echo JHtml::_('bootstrap.addTab', 'userTab', 'publishing', JText::_('COM_SHADOWSOCKS_USER_PUBLISHING', true)); ?>

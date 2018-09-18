@@ -444,13 +444,14 @@ class ShadowsocksConnectionClass{
 		
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
-		$newTraffic = $user->ss_user_traffic;
-		$totalTraffic = $user->ss_user_total_traffic;
+		$newTraffic = (int)$user->ss_user_traffic;
+		$totalTraffic = (int)$user->ss_user_total_traffic;
+		$userLastTrafic = (int)$user->ss_user_last_traffic;
+		$diff = (int)$currentTraffic - (int)$userLastTrafic;
 		
-		if(($currentTraffic - $user->ss_user_last_traffic) > 0){
-			$add = $currentTraffic - $user->ss_user_last_traffic;
-			$newTraffic = $newTraffic + $add;
-			$totalTraffic = $totalTraffic + $add;
+		if($diff > 0){
+			$newTraffic = (float)($user->ss_user_traffic + $diff);
+			$totalTraffic = (float)($totalTraffic + $diff);
 		}
 		
 		$fields = array(
@@ -458,6 +459,7 @@ class ShadowsocksConnectionClass{
 			$db->quoteName('ss_user_traffic') .' = '. $db->quote(($newTraffic)),
 			$db->quoteName('ss_user_total_traffic') .' = '. $db->quote(($totalTraffic))
 		);
+		
 		
 		if($newTraffic > $limit){
 			if($user->published == 1){
@@ -472,7 +474,6 @@ class ShadowsocksConnectionClass{
 		$conditions = array(
 			$db->quoteName('id') . ' = ' . $db->quote($user->id)
 		);
-
 		$query->update($db->quoteName('#__shadowsocks_user'))->set($fields)->where($conditions);
 		$db->setQuery($query);
 		$result = $db->execute();

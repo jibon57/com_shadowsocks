@@ -13,8 +13,6 @@
 defined('_JEXEC') or die('Restricted access');
 
 JHTML::_('behavior.modal');
-jimport('joomla.installer.installer');
-jimport('joomla.installer.helper');
 
 /**
  * Script File of Shadowsocks Component
@@ -124,7 +122,7 @@ class com_shadowsocksInstallerScript
 			echo '<a target="_blank" href="https://www.mynaparrot.com" title="Shadowsocks">
 				<img src="components/com_shadowsocks/assets/images/vdm-component.png"/>
 				</a>
-				<h3>Upgrade to Version 1.0.1 Was Successful! Let us know if anything is not working as expected.</h3>';
+				<h3>Upgrade to Version 1.0.2 Was Successful! Let us know if anything is not working as expected.</h3>';
 		}
 	}
 }

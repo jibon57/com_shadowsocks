@@ -11,17 +11,13 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+JHtml::_('behavior.tabstate');
 
 // Access check.
 if (!JFactory::getUser()->authorise('core.manage', 'com_shadowsocks'))
 {
-	return JError::raiseWaring(404, JText::_('JERROR_ALERTNOAUTHOR'));
+	throw new JAccessExceptionNotallowed(JText::_('JERROR_ALERTNOAUTHOR'), 403);
 };
-
-// Load cms libraries
-JLoader::registerPrefix('J', JPATH_PLATFORM . '/cms');
-// Load joomla libraries without overwrite
-JLoader::registerPrefix('J', JPATH_PLATFORM . '/joomla',false);
 
 // Add CSS file for all pages
 $document = JFactory::getDocument();
@@ -29,11 +25,8 @@ $document->addStyleSheet('components/com_shadowsocks/assets/css/admin.css');
 $document->addScript('components/com_shadowsocks/assets/js/admin.js');
 
 // require helper files
-JLoader::register('ShadowsocksHelper', dirname(__FILE__) . '/helpers/shadowsocks.php'); 
-JLoader::register('JHtmlBatch_', dirname(__FILE__) . '/helpers/html/batch_.php'); 
-
-// import joomla controller library
-jimport('joomla.application.component.controller');
+JLoader::register('ShadowsocksHelper', __DIR__ . '/helpers/shadowsocks.php'); 
+JLoader::register('JHtmlBatch_', __DIR__ . '/helpers/html/batch_.php'); 
 
 // Get an instance of the controller prefixed by Shadowsocks
 $controller = JControllerLegacy::getInstance('Shadowsocks');
