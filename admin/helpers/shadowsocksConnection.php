@@ -450,7 +450,7 @@ class ShadowsocksConnectionClass{
 		$diff = (int)$currentTraffic - (int)$userLastTrafic;
 		
 		if($diff > 0){
-			$newTraffic = (float)($user->ss_user_traffic + $diff);
+			$newTraffic = (float)($newTraffic + $diff);
 			$totalTraffic = (float)($totalTraffic + $diff);
 		}
 		
