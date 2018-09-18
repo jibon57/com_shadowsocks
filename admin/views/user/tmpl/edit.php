@@ -102,3 +102,22 @@ $componentParams = JComponentHelper::getParams('com_shadowsocks');
 </div>
 </form>
 </div>
+
+<script type="text/javascript">
+
+// #jform_ss_user_enable_plugin listeners for ss_user_enable_plugin_vvvvvvv function
+jQuery('#jform_ss_user_enable_plugin').on('keyup',function()
+{
+	var ss_user_enable_plugin_vvvvvvv = jQuery("#jform_ss_user_enable_plugin input[type='radio']:checked").val();
+	vvvvvvv(ss_user_enable_plugin_vvvvvvv);
+
+});
+jQuery('#adminForm').on('change', '#jform_ss_user_enable_plugin',function (e)
+{
+	e.preventDefault();
+	var ss_user_enable_plugin_vvvvvvv = jQuery("#jform_ss_user_enable_plugin input[type='radio']:checked").val();
+	vvvvvvv(ss_user_enable_plugin_vvvvvvv);
+
+});
+
+</script>

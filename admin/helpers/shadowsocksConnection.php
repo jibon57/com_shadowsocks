@@ -488,7 +488,8 @@ class ShadowsocksConnectionClass{
 		$db = JFactory::getDbo();
 		$output = array();
 		$query = $db->getQuery(true);
-		$query->select(array('a.ss_user_encryption', 'a.ss_user_password', 'a.ss_user_port', 'a.ss_user_server'))
+		$query->select(array('a.ss_user_encryption', 'a.ss_user_password', 'a.ss_user_port', 'a.ss_user_server',
+		'a.ss_user_enable_plugin', 'a.ss_user_plugin_options'))
 			->from($db->quoteName('#__shadowsocks_user', 'a'))
 			//->join('LEFT', $db->quoteName('#__shadowsocks_server', 'b') .' ON a.ss_user_server = b.id')
 			->where($db->quoteName('a.id') ." = ".$db->quote($userid));
@@ -510,7 +511,14 @@ class ShadowsocksConnectionClass{
 			$server_name = str_replace(" ", "%20", $server->ss_server_name);
 			$server_name = rtrim($server_name, "%20");
 			
-			$data = base64_encode("{$user->ss_user_encryption}:{$user->ss_user_password}@{$server->ss_server_host}:{$user->ss_user_port}");
+			$data = base64_encode("{$user->ss_user_encryption}:{$user->ss_user_password}"); // authentication data
+			
+			$data = $data."@{$server->ss_server_host}:{$user->ss_user_port}"; //host
+			
+			if($user->ss_user_enable_plugin){
+				$data = $data. "?" .$user->ss_user_plugin_options; // plugin
+			}
+			
 			$ssURL = "ss://". $data . "#" . $server_name;
 			
 			$QRCode = (new QRCode)->render($ssURL);

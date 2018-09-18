@@ -21,6 +21,8 @@ $fields = $displayData->get('fields') ?: array(
 	'ss_user_password',
 	'ss_user_port',
 	'ss_user_encryption',
+	'ss_user_enable_plugin',
+	'ss_user_plugin_options',
 	'ss_user_traffic',
 	'ss_user_total_traffic',
 	'ss_user_traffic_reset',

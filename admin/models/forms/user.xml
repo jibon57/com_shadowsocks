@@ -158,6 +158,41 @@
 			default="0"
 			filter="STRING"
 		/>
+		<!-- Ss_user_plugin_options Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="ss_user_plugin_options"
+			label="COM_SHADOWSOCKS_USER_SS_USER_PLUGIN_OPTIONS_LABEL"
+			size="10"
+			default="plugin=obfs-local;obfs=http;obfs-host=baidu.com"
+			description="COM_SHADOWSOCKS_USER_SS_USER_PLUGIN_OPTIONS_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="true"
+			filter="STRING"
+			message="COM_SHADOWSOCKS_USER_SS_USER_PLUGIN_OPTIONS_MESSAGE"
+			hint="COM_SHADOWSOCKS_USER_SS_USER_PLUGIN_OPTIONS_HINT"
+			autocomplete="on"
+			showon="ss_user_enable_plugin:1"
+		/>
+		<!-- Ss_user_enable_plugin Field. Type: Radio. (joomla) -->
+		<field
+			type="radio"
+			name="ss_user_enable_plugin"
+			label="COM_SHADOWSOCKS_USER_SS_USER_ENABLE_PLUGIN_LABEL"
+			description="COM_SHADOWSOCKS_USER_SS_USER_ENABLE_PLUGIN_DESCRIPTION"
+			class="btn-group btn-group-yesno"
+			default="0"
+			required="true"
+			readonly="false"
+			disabled="false">
+			<!-- Option Set. -->
+			<option value="1">
+				COM_SHADOWSOCKS_USER_YES</option>
+			<option value="0">
+				COM_SHADOWSOCKS_USER_NO</option>
+		</field>
 		<!-- Ss_user_encryption Field. Type: List. (joomla) -->
 		<field
 			type="list"
