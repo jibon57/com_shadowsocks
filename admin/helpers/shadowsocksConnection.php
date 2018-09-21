@@ -412,14 +412,14 @@ class ShadowsocksConnectionClass{
 		
 		$fields = array(
 			$db->quoteName('ss_user_traffic_reset') . ' = ' . $db->quote($newDate),
-			$db->quoteName('ss_user_traffic') .' = '. $db->quote(0),
-			$db->quoteName('ss_user_last_traffic') .' = '. $db->quote(0)
+			$db->quoteName('ss_user_traffic') .' = '. $db->quote('0'),
+			$db->quoteName('ss_user_last_traffic') .' = '. $db->quote('0')
 		);
 		
 		if($user->published == 0){
 			$createPort = self::createUserPort($serverId, $user->ss_user_port, $user->ss_user_password, $user->ss_user_encryption);
 			if($createPort->status){
-				$publish = $db->quoteName('published') .' = '. $db->quote(1);
+				$publish = $db->quoteName('published') .' = '. $db->quote('1');
 				array_push($fields, $publish);
 			}
 		}
@@ -465,7 +465,7 @@ class ShadowsocksConnectionClass{
 			if($user->published == 1){
 				$deletePort = self::deletePort($serverid, $user->ss_user_port);
 				if($deletePort->status){
-					$unpublish = $db->quoteName('published') .' = '. $db->quote(0);
+					$unpublish = $db->quoteName('published') .' = '. $db->quote('0');
 					array_push($fields, $unpublish);
 				}
 			}
