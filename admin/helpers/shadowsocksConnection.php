@@ -375,10 +375,11 @@ class ShadowsocksConnectionClass{
 				$date->modify("+". $user->ss_package_duration ." day");
 				$resetTime = strtotime($date->format("Y-m-d H:i:s"));
 				if($currentTime >= $resetTime){
-					//echo "Need to reset";
 					self::addNewResetTimeToDB($serverid, date("Y-m-d H:i:s", $resetTime), $user);
+				}else {
+					self::addNewTraffic($serverid, $user, $currentTraffic);
 				}
-				self::addNewTraffic($serverid, $user, $currentTraffic);
+				
 			break;
 			
 			case 1:
@@ -386,10 +387,11 @@ class ShadowsocksConnectionClass{
 				$date->modify("+". $user->ss_package_duration ." month");
 				$resetTime = strtotime($date->format("Y-m-d H:i:s"));
 				if($currentTime >= $resetTime){
-					//echo "Need to reset";
 					self::addNewResetTimeToDB($serverid, date("Y-m-d H:i:s", $resetTime), $user);
+				}else {
+					//echo "No reset";
+					self::addNewTraffic($serverid, $user, $currentTraffic);
 				}
-				self::addNewTraffic($serverid, $user, $currentTraffic);
 				
 			break;
 			
@@ -398,15 +400,15 @@ class ShadowsocksConnectionClass{
 				$date->modify("+". $user->ss_package_duration ." year");
 				$resetTime = strtotime($date->format("Y-m-d H:i:s"));
 				if($currentTime >= $resetTime){
-					//echo "Need to reset";
 					self::addNewResetTimeToDB($serverid, date("Y-m-d H:i:s", $resetTime), $user);
+				}else {
+					self::addNewTraffic($serverid, $user, $currentTraffic);
 				}
-				self::addNewTraffic($serverid, $user, $currentTraffic);
 			break;
 		}
 	}
 	
-	public static function addNewResetTimeToDB($serverid, $newDate, $user){
+	public static function addNewResetTimeToDB($serverId, $newDate, $user){
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
 		
@@ -422,6 +424,12 @@ class ShadowsocksConnectionClass{
 				$publish = $db->quoteName('published') .' = '. $db->quote('1');
 				array_push($fields, $publish);
 			}
+		}else {
+			// we will need to do this because there is no other way to reset bandwidth :( .. 
+			$deletePort = self::deletePort($serverId, $user->ss_user_port);
+			if($deletePort->status){
+				$createPort = self::createUserPort($serverId, $user->ss_user_port, $user->ss_user_password, $user->ss_user_encryption);
+			}
 		}
 
 		$conditions = array(
@@ -431,7 +439,6 @@ class ShadowsocksConnectionClass{
 		$query->update($db->quoteName('#__shadowsocks_user'))->set($fields)->where($conditions);
 		$db->setQuery($query);
 		$result = $db->execute();
-		
 		return $result;
 	}
 	
@@ -465,7 +472,7 @@ class ShadowsocksConnectionClass{
 			if($user->published == 1){
 				$deletePort = self::deletePort($serverid, $user->ss_user_port);
 				if($deletePort->status){
-					$unpublish = $db->quoteName('published') .' = '. $db->quote('0');
+					$unpublish = $db->quoteName('published') .' = '. $db->quote(0);
 					array_push($fields, $unpublish);
 				}
 			}
