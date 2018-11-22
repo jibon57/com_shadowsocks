@@ -453,7 +453,33 @@ class ShadowsocksConnectionClass{
 		$query = $db->getQuery(true);
 		$newTraffic = (int)$user->ss_user_traffic;
 		$totalTraffic = (int)$user->ss_user_total_traffic;
-		$userLastTrafic = (int)$user->ss_user_last_traffic;
+		
+		$traffic_array = json_decode($user->ss_user_last_traffic, true);
+		
+		if(!is_array($traffic_array)){
+			$traffic_array = array();
+			$newArray = array(
+				'serverid' => $serverid,
+				'ss_user_last_traffic' => 0
+			);
+			array_push($traffic_array, $newArray);
+		}
+		
+		$ss_user_last_traffic = 0;
+		$currentKey = 0;
+		$gotServerInArray = false;
+		
+		foreach($traffic_array as $key => $traffic){
+			if($traffic['serverid'] == $serverid){
+				$ss_user_last_traffic = $traffic['ss_user_last_traffic'];
+				$currentKey = $key;
+				$gotServerInArray = true;
+				break;
+			}
+		}
+		
+		$userLastTrafic = (int)$ss_user_last_traffic;
+		
 		$diff = (int)$currentTraffic - (int)$userLastTrafic;
 		
 		if($diff > 0){
@@ -461,8 +487,18 @@ class ShadowsocksConnectionClass{
 			$totalTraffic = (float)($totalTraffic + $diff);
 		}
 		
+		if($gotServerInArray){
+			$traffic_array[$currentKey]['ss_user_last_traffic'] = $currentTraffic;
+		} else {
+			$newLastTraffic = array(
+				'serverid' => $serverid,
+				'ss_user_last_traffic' => $currentTraffic
+			);
+			array_push($traffic_array, $newLastTraffic);
+		}
+		
 		$fields = array(
-			$db->quoteName('ss_user_last_traffic') . ' = ' . $db->quote($currentTraffic),
+			$db->quoteName('ss_user_last_traffic') . ' = ' . $db->quote(json_encode($traffic_array)),
 			$db->quoteName('ss_user_traffic') .' = '. $db->quote(($newTraffic)),
 			$db->quoteName('ss_user_total_traffic') .' = '. $db->quote(($totalTraffic))
 		);
