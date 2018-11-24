@@ -286,7 +286,7 @@ class ShadowsocksConnectionClass{
 		$ping = self::pingToServer($return['server_url'], $return['token']);
 		
 		if(preg_match("/401\ Unauthorized/", $ping->msg)){
-			file_put_contents(__DIR__."/out.txt", print_r($ping, true));
+			//file_put_contents(__DIR__."/out.txt", print_r($ping, true));
 			$newtoken = self::getTokenFromServer($server->ss_server_host, $server->ss_server_port, $server->ss_server_password, true);
 			$ping->status = true;
 			$return['token'] = $newtoken->token;
